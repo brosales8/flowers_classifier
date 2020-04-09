@@ -16,3 +16,7 @@ Files
 ---
 - [finding_donors.ipynb]() Jupyter Notebook file providing the source code of the classifiers and the model chosen.
 - [finding_donors.html]() Format HTML required for Udacity submission (Same information like source code).
+
+Dataset
+---
+- [102 Category Flower](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/)  
