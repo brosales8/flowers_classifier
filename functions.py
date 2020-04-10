@@ -30,15 +30,16 @@ def predict(image_path, model_path, top_k, category_path):
     classes = classes.numpy()
     classes += 1
     
-#     c_names = class_names(category_path)
-#     flower_names = np.array([])
+    c_names = class_names(category_path)
+    flower_names = np.array([])
     
-#     for i in range(len(classes)):
-#         flower_names = np.append(flower_names, c_names[str(i+1)])    
+    for i in classes:
+        flower_names = np.append(flower_names, c_names[str(i)])    
     
-#     result = np.stack((flower_names, ps), axis=1)
+    result = np.stack((flower_names, ps), axis=1)
     
-    return ps, classes
+    return result
+#     return ps, flower_names
 
 
 def load_model(model_path):
