@@ -3,7 +3,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import os
-
+import tensorflow_hub as hub
 
 IMAGE_SIZE = 224
 
@@ -13,7 +13,7 @@ def predict(image_path, model_path, top_k, category_path):
     
     print('\n\nLoading Model===>')
     # Load Model and Image
-    model = load_model(model_path)
+    model = load_model(model_path)    
     img = np.asarray(Image.open(image_path))
     print('Model Loaded.....OK')
     # Image Preprocessing, Convert img to tensor, resize and normalize.\
@@ -30,21 +30,25 @@ def predict(image_path, model_path, top_k, category_path):
     classes = classes.numpy()
     classes += 1
     
-    c_names = class_names(category_path)
-    flower_names = np.array([])
+    if category_path != None:
+        c_names = class_names(category_path)
+        flower_names = np.array([])
     
-    for i in classes:
-        flower_names = np.append(flower_names, c_names[str(i)])    
+    #   Extract class_names of flowers
+        for i in classes:
+            flower_names = np.append(flower_names, c_names[str(i)])
+        classes = flower_names
     
-    result = np.stack((flower_names, ps), axis=1)
-    
-    return result
-#     return ps, flower_names
+    return ps, classes
 
 
 def load_model(model_path):
-    model = tf.keras.models.load_model(model_path)
-    model.summary()
+#   Use this line to load Saved_model format
+#     model = tf.keras.models.load_model(model_path)
+    
+#   Use this line to load the h5 model
+    model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer':hub.KerasLayer})
+#     model.summary()
     
     return model
 
