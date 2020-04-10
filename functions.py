@@ -44,10 +44,10 @@ def predict(image_path, model_path, top_k, category_path):
 
 def load_model(model_path):
 #   Use this line to load Saved_model format
-#     model = tf.keras.models.load_model(model_path)
+    model = tf.keras.models.load_model(model_path)
     
 #   Use this line to load the h5 model
-    model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer':hub.KerasLayer})
+#     model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer':hub.KerasLayer})
 #     model.summary()
     
     return model
