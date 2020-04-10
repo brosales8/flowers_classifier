@@ -1,21 +1,20 @@
-# Finding Donors for CharityML
+# Image Classifier Flowers Dataset 
 ### Udacity - Machine Learning NanoDegree
 
 **Author:** Bryan Rosales<br>
-**Date:** March 11, 2020
+**Date:** April 8th, 2020
 
 
 Overview
 ---
 
-In this project, I used the dataset collected from the 1994 U.S Census to create a supervised learning model which was able to predict if an individual make more or less than $50k income per year. The idea is to target individuals making more than 50k which are more probable to donate money for a ficticious company called CharityML. The company is dedicated to offer scholarships to students interested going deeply in Machine Learning skills in California. 
-
-The dataset for this project originates from the UCI Machine Learning Repository. The datset was donated by Ron Kohavi and Barry Becker, after being published in the article "Scaling Up the Accuracy of Naive-Bayes Classifiers: A Decision-Tree Hybrid". Udacity made small changes to the original datasets for educational purposes.
+The goal of the project is to create a classifier to correctly predict the class of 102 types of flowers (images) provided by `oxford102-dataset`. The problem was approached using a Neural Network pretrained `MobileNetv2.0 - Transfering Learning` and training it on the new dataset. The dataset was preprocessing to resize images and also data augmentation was required to avoid overfitting due by the number of samples in training dataset.
+Please see the following files for more detail:
 
 Files
 ---
-- [finding_donors.ipynb]() Jupyter Notebook file providing the source code of the classifiers and the model chosen.
-- [finding_donors.html]() Format HTML required for Udacity submission (Same information like source code).
+- [Project_Image_Classifier_Project.ipynb](https://github.com/brosales8/flowers_classifier/blob/master/Project_Image_Classifier_Project.ipynb) Jupyter Notebook providing the source code of the classifier, preprocessing and prediction of the images.
+- [Project_Image_Classifier_Project.html](https://github.com/brosales8/flowers_classifier/blob/master/Project_Image_Classifier_Project.html) Format HTML required for Udacity submission (Same information like the notebook).
 
 Dataset
 ---
