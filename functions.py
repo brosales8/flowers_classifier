@@ -11,18 +11,18 @@ IMAGE_SIZE = 224
 # return the actually values of the probabilities along with the class name for every type
 def predict(image_path, model_path, top_k, category_path):
     
-    print('\n\nLoading Model===>')
+#     print('\n\nLoading Model===>')
     # Load Model and Image
     model = load_model(model_path)    
     img = np.asarray(Image.open(image_path))
-    print('Model Loaded.....OK')
+#     print('Model Loaded.....OK')
     # Image Preprocessing, Convert img to tensor, resize and normalize.\
-    print('\nPreprocessing Image ===>')
+#     print('\nPreprocessing Image ===>')
     img = tf.convert_to_tensor(img)
     img_batch = image_preprocessing(img)    
-    print('\nImage Processed.....OK')
+#     print('\nImage Processed.....OK')
     # Prediction
-    print('\nPredicting.....')
+#     print('\nPredicting.....')
     probs = model.predict(img_batch)
     probs = probs.flatten()    
     ps, classes = tf.math.top_k(probs, k=top_k, sorted=True)
@@ -44,10 +44,10 @@ def predict(image_path, model_path, top_k, category_path):
 
 def load_model(model_path):
 #   Use this line to load Saved_model format
-    model = tf.keras.models.load_model(model_path)
+#     model = tf.keras.models.load_model(model_path)
     
 #   Use this line to load the h5 model
-#     model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer':hub.KerasLayer})
+    model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer':hub.KerasLayer})
 #     model.summary()
     
     return model

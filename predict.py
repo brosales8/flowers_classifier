@@ -26,7 +26,6 @@ if __name__=='__main__':
         top_k = 1
     else:
         top_k = args.top_k
-    print(args.top_k)
     
     catg = True
     if args.category_names == None:
